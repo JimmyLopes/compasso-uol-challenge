@@ -24,14 +24,14 @@ public class CidadeLeituraResource {
         this.modelMapper = modelMapper;
     }
 
-    @GetMapping(value = "/procurar-nome")
+    @GetMapping(value = "/procurar")
     public ResponseEntity<CidadeRetornadaDto> buscarCidadePorNome(@RequestParam String nome){
         Cidade cidade = cidadeService.buscarCidadePeloNome(nome);
         return ResponseEntity.ok().body(modelMapper.map(cidade, CidadeRetornadaDto.class));
     }
 
-    @GetMapping(value = "/procurar-estado/{estado}")
-    public ResponseEntity<CidadeRetornadaDto[]> buscarCidadesPorEstado(@PathVariable(value = "estado") EstadoEnum estadoEnum){
+    @GetMapping(value = "/buscar")
+    public ResponseEntity<CidadeRetornadaDto[]> buscarCidadesPorEstado(@RequestParam(value = "estado") EstadoEnum estadoEnum){
         List<Cidade> cidades = cidadeService.buscarCidadesPorEstado(estadoEnum);
         return ResponseEntity.ok().body(modelMapper.map(cidades, CidadeRetornadaDto[].class));
     }

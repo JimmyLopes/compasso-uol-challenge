@@ -21,7 +21,7 @@ public class ClienteLeituraResource {
         this.modelMapper = modelMapper;
     }
 
-    @GetMapping("/nome-procurado")
+    @GetMapping("/procurado")
     public ResponseEntity<ClienteRetornadoDto> buscarClientePeloNome(@RequestParam String nomeCompleto){
         Cliente cliente = clienteService.buscarClientePorNome(nomeCompleto);
         return ResponseEntity.ok().body(modelMapper.map(cliente, ClienteRetornadoDto.class));
