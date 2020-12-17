@@ -15,5 +15,5 @@ public interface ClienteService {
 
     Cliente deletarCliente(Long idCliente);
 
-    Cliente alterarNomeCliente(Long idCliente, ClienteAlterarNomeDto novoNome);
+    Cliente alterarNomeCliente(Long idCliente,@Valid ClienteAlterarNomeDto novoNome);
 }

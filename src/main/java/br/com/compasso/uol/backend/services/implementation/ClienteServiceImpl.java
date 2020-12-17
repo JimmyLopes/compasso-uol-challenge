@@ -2,6 +2,7 @@ package br.com.compasso.uol.backend.services.implementation;
 
 import br.com.compasso.uol.backend.dtos.ClienteAlterarNomeDto;
 import br.com.compasso.uol.backend.dtos.NovoClienteDto;
+import br.com.compasso.uol.backend.exceptions.BusinessException;
 import br.com.compasso.uol.backend.exceptions.ResourceNotFoundException;
 import br.com.compasso.uol.backend.models.Cliente;
 import br.com.compasso.uol.backend.repositorys.ClienteRepository;
@@ -67,13 +68,13 @@ public class ClienteServiceImpl implements ClienteService {
     }
 
     @Override
-    public Cliente alterarNomeCliente(Long idCliente, ClienteAlterarNomeDto clienteParaAlterar) {
+    public Cliente alterarNomeCliente(Long idCliente,@Valid ClienteAlterarNomeDto clienteParaAlterar) {
         Cliente cliente = buscarClientePorId(idCliente);
         if (!cliente.getNomeCompleto().equals(clienteParaAlterar.getNomeCompleto())) {
             cliente.setNomeCompleto(clienteParaAlterar.getNomeCompleto());
             return clienteRepository.save(cliente);
         } else {
-            throw new ResourceNotFoundException("cliente.nome.repetido");
+            throw new BusinessException(buscarMensagemDeValidacao("cliente.nome.repetido"));
         }
     }
 }
