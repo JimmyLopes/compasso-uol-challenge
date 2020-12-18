@@ -1,0 +1,12 @@
+{
+  "id": 6,
+  "nomeCompleto": "Marcelo Silva",
+  "eSexo": "MASCULINO",
+  "dataNascimento": "1988-11-19",
+  "idade": 32,
+  "cidade": {
+    "id": 3,
+    "nome": "Rio de Janeiro",
+    "eEstado": "RJ"
+  }
+}
