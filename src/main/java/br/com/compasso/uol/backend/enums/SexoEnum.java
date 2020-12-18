@@ -2,9 +2,9 @@ package br.com.compasso.uol.backend.enums;
 
 public enum SexoEnum {
 
-    MASCULINO("Masculino"),
     FEMININO("Feminino"),
-    INDEFINIDO("Indefinido");
+    INDEFINIDO("Indefinido"),
+    MASCULINO("Masculino");
 
     private final String sexo;
 

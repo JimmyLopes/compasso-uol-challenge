@@ -2,6 +2,9 @@ package br.com.compasso.uol.backend.dtos;
 
 import java.time.LocalDate;
 
+/**
+ * Dto retornando as informação de exibição do cliente
+ */
 public class ClienteRetornadoDto {
 
     private String nomeCompleto;

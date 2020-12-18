@@ -6,6 +6,9 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+/**
+ * Dto com as informações necessárias para cadastrar nova cidade
+ */
 public class NovaCidadeDto {
     @Size(min = 3, max = 100, message = "{cidade.nome.tamanho.invalido}")
     @NotBlank(message = "{cidade.nome.vazio}")

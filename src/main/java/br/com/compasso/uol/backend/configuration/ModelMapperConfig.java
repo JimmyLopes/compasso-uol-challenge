@@ -12,6 +12,11 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ModelMapperConfig {
 
+    /**
+     * Ajusta o mapeamento das entidades
+     *
+     * @return o modelMapper com o mapeamento das entidades
+     */
     @Bean
     public ModelMapper modelMapper() {
         ModelMapper modelMapper = new ModelMapper();

@@ -46,6 +46,9 @@ class CidadeServiceTest {
         return TestUtils.getMock(MOCK_FOLDER, FILE_NAME_NOVA_CIDADE, NovaCidadeDto.class);
     }
 
+    /**
+     * Testa se uma cidade válida vai ser salva pelo serviço
+     */
     @Test
     void testarSalvarCidade() {
         Cidade cidade = getMockCidade();
@@ -56,6 +59,9 @@ class CidadeServiceTest {
         assertEquals(cidadeSalva.geteEstado(), cidade.geteEstado());
     }
 
+    /**
+     * Teste se uma cidade vai ser encontrada quando um nome válido é passado
+     */
     @Test
     void testarBuscarCidadePeloNome() {
         Cidade cidade = getMockCidade();
@@ -66,6 +72,9 @@ class CidadeServiceTest {
         assertEquals(cidadeProcurada.geteEstado(), cidade.geteEstado());
     }
 
+    /**
+     * Testa se a aplicação vai lançar uma exceção caso não encontre uma cidade com o nome passado
+     */
     @Test
     void testarBuscarCidadeNaoEncontradoPeloNome() {
         String nomeCidade = getMockCidade().getNome();
@@ -74,6 +83,9 @@ class CidadeServiceTest {
         assertThrows(ResourceNotFoundException.class, () -> cidadeService.buscarCidadePeloNome(nomeCidade));
     }
 
+    /**
+     * Dado um Estado, testa se a aplicação vai buscar a lista de cidades daquele estado
+     */
     @Test
     void testarBuscarCidadesPorEstado() {
         when(cidadeRepository.findAllByEstado(Mockito.any())).thenReturn(Collections.singletonList(getMockCidade()));
@@ -81,6 +93,9 @@ class CidadeServiceTest {
         assertEquals(1, cidades.size());
     }
 
+    /**
+     * Testa se a aplicação vai lançar uma exceção caso não encontre nenhuma cidade para um Estado passado por parâmetro
+     */
     @Test
     void testarBuscarCidadesSemSucessoPorEstado() {
         EstadoEnum estadoEnum = EstadoEnum.SP;

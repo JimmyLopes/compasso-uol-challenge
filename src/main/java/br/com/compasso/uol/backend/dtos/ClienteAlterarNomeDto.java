@@ -3,6 +3,9 @@ package br.com.compasso.uol.backend.dtos;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
+/**
+ * Dto para alterar o nome do cliente
+ */
 public class ClienteAlterarNomeDto {
 
     @NotBlank(message = "{cliente.nome.alterado.vazio}")

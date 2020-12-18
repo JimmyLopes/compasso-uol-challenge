@@ -10,6 +10,9 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
 
+/**
+ * Dto com as informações necessárias para cadastrar novo cliente
+ */
 public class NovoClienteDto {
 
     @Size(min = 3, max = 100, message = "{cliente.nome.completo.tamanho.invalido}")
@@ -20,7 +23,6 @@ public class NovoClienteDto {
     private SexoEnum sexoEnum;
 
     @NotNull(message = "{cliente.data.nascimento.nulo}")
-    //TODO: verificar essas duas validações
     @DateTimeFormat(pattern = "dd.MM.yy")
     @Temporal(value= TemporalType.TIMESTAMP)
     private LocalDate dataNascimento;

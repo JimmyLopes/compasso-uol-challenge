@@ -2,6 +2,9 @@ package br.com.compasso.uol.backend.handlers.custom;
 
 import java.util.List;
 
+/**
+ * Objeto construido a partir da lista de erros
+ */
 public class EntityErrorResponse extends AbstractErrorResponse {
 
     private List<StandardError> erros;

@@ -47,6 +47,9 @@ class ClienteServiceTest {
         return TestUtils.getMock(MOCK_FOLDER, FILE_NAME_NOVO_CLIENTE, NovoClienteDto.class);
     }
 
+    /**
+     * Testa se um cliente válido vai ser salva pelo serviço
+     */
     @Test
     void testarSalvarCliente() {
         Cliente cliente = getMockCliente();
@@ -59,6 +62,9 @@ class ClienteServiceTest {
         assertEquals(clienteSalvo.getIdade(), cliente.getIdade());
     }
 
+    /**
+     * Teste se um cliente vai ser encontrado quando um nome válido é passado
+     */
     @Test
     void testarBuscarClientePeloNome() {
         Cliente cliente = getMockCliente();
@@ -71,6 +77,9 @@ class ClienteServiceTest {
         assertEquals(clienteProcurado.getIdade(), cliente.getIdade());
     }
 
+    /**
+     * Testa se a aplicação vai lançar uma exceção caso não encontre um cliente com o nome passado
+     */
     @Test
     void testarClienteNaoEncontradoPeloNome() {
         String nomeCliente = getMockCliente().getNomeCompleto();
@@ -79,6 +88,9 @@ class ClienteServiceTest {
         assertThrows(ResourceNotFoundException.class, () -> clienteService.buscarClientePorNome(nomeCliente));
     }
 
+    /**
+     * Teste se um cliente vai ser encontrado quando um id válido é passado
+     */
     @Test
     void testarBuscarClientePeloId(){
         Cliente cliente = getMockCliente();
@@ -91,6 +103,9 @@ class ClienteServiceTest {
         assertEquals(clienteProcurado.getIdade(), cliente.getIdade());
     }
 
+    /**
+     * Testa se um cliente com id válido vai se deletado pelo serviço
+     */
     @Test
     void testarDeletarCliente(){
         Cliente cliente = getMockCliente();
@@ -99,6 +114,9 @@ class ClienteServiceTest {
         verify(clienteRepository, Mockito.times(1)).delete(cliente);
     }
 
+    /**
+     * Testa se o serviço vai alterar o nome de cliente
+     */
     @Test
     void testarAlterarNomeCliente(){
         Cliente cliente = getMockCliente();
@@ -111,6 +129,9 @@ class ClienteServiceTest {
         Mockito.verify(clienteRepository, Mockito.times(1)).findById(cliente.getId());
     }
 
+    /**
+     * Testa se o serviço vai lançar um exceção caso o nome informado se o mesmo do cliente
+     */
     @Test
     void testarAlterarNomeClienteIgual(){
         Cliente cliente = getMockCliente();

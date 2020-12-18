@@ -2,6 +2,9 @@ package br.com.compasso.uol.backend.handlers.custom;
 
 import java.time.LocalDateTime;
 
+/**
+ * Classe abstrata contendo as informações que serão injetadas no response, caso ocorra algum erro na request
+ */
 public abstract class AbstractErrorResponse {
 
 	private String mensagem;
