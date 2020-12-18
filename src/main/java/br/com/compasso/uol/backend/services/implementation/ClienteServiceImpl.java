@@ -61,10 +61,9 @@ public class ClienteServiceImpl implements ClienteService {
     }
 
     @Override
-    public Cliente deletarCliente(Long idCliente) {
+    public void deletarCliente(Long idCliente) {
         Cliente cliente = buscarClientePorId(idCliente);
         clienteRepository.delete(cliente);
-        return cliente;
     }
 
     @Override
