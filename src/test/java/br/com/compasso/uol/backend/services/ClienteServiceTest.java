@@ -25,6 +25,7 @@ import static org.mockito.Mockito.when;
 
 @SpringBootTest
 class ClienteServiceTest {
+
     private static final String MOCK_FOLDER = "mocks";
     private static final String FILE_NAME_CLIENTE = "cliente.json";
     private static final String FILE_NAME_NOVO_CLIENTE = "novoCliente.json";
