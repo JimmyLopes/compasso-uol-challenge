@@ -32,7 +32,7 @@ public class ClienteServiceImpl implements ClienteService {
         this.modelMapper = modelMapper;
     }
 
-    public Cliente buscarClientePorId(Long idCliente) {
+    private Cliente buscarClientePorId(Long idCliente) {
         return clienteRepository.findById(idCliente)
                 .orElseThrow(() -> new ResourceNotFoundException(buscarMensagemDeValidacao("cliente.id.nao.encontrado", idCliente)));
     }
@@ -70,7 +70,7 @@ public class ClienteServiceImpl implements ClienteService {
     @Override
     public Cliente alterarNomeCliente(Long idCliente,@Valid ClienteAlterarNomeDto clienteParaAlterar) {
         Cliente cliente = buscarClientePorId(idCliente);
-        if (!cliente.getNomeCompleto().equals(clienteParaAlterar.getNomeCompleto())) {
+        if (!clienteParaAlterar.getNomeCompleto().equals(cliente.getNomeCompleto())) {
             cliente.setNomeCompleto(clienteParaAlterar.getNomeCompleto());
             return clienteRepository.save(cliente);
         } else {
